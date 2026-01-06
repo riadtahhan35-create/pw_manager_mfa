@@ -7,7 +7,7 @@ __pycache__/
 venv/
 env/
 
-# Env secrets
+# Secrets / env
 .env
 .env.*
 *.pem
