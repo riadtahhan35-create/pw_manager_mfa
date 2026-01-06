@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Face Verify</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- CryptoJS (HMAC-SHA1 + SHA256) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+  <!-- Argon2id in browser -->
+  <script defer src="https://cdn.jsdelivr.net/npm/argon2-browser/dist/argon2-bundled.min.js"></script>
+
+  <!-- face-api -->
+  <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
+  <!-- shared face helpers (IMPORTANT PATH) -->
+  <script defer src="../face_verify/face.js"></script>
+
+  <!-- page logic -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container wide">
+    <h2>Face Verification</h2>
+    <video id="cam" autoplay playsinline width="420"></video>
+
+    <div class="row">
+      <button id="btnVerify">Verify Face</button>
+      <button class="secondary" id="btnBack">Back</button>
+    </div>
+
+    <div class="status" id="status"></div>
+  </div>
+</body>
+</html>

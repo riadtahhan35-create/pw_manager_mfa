@@ -1,0 +1,126 @@
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.cp-card{
+  width:min(560px, 92vw);
+  padding:22px;
+  border-radius:16px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+}
+
+.cp-header{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:18px;
+}
+
+.cp-icon{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:rgba(0, 195, 255, .18);
+  font-size:22px;
+}
+
+.cp-header h1{
+  margin:0;
+  font-size:22px;
+  letter-spacing:.2px;
+}
+.muted{ opacity:.8; margin:6px 0 0; font-size:13px; }
+
+.cp-form label{
+  display:block;
+  margin:14px 0 8px;
+  font-size:13px;
+  opacity:.9;
+}
+
+.field{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.field input{
+  width:100%;
+  padding:12px 12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.08);
+  outline:none;
+  color:#fff;
+}
+
+.eye{
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  cursor:pointer;
+}
+
+.meter{
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  margin-top:10px;
+  overflow:hidden;
+}
+.meter-bar{
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background:rgba(0, 195, 255, .9);
+  transition: width .18s ease;
+}
+
+.meter-hint{
+  margin-top:8px;
+  font-size:12px;
+  opacity:.85;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+  justify-content:flex-end;
+}
+
+.btn{
+  padding:12px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,.12);
+  font-weight:600;
+}
+
+.btn.primary{
+  background:rgba(0, 195, 255, .95);
+  color:#001018;
+}
+.btn.secondary{
+  background:rgba(255,255,255,.06);
+  color:#fff;
+}
+
+.status{
+  margin-top:14px;
+  font-size:13px;
+  min-height:18px;
+}
+.status.ok{ color:#6effb1; }
+.status.err{ color:#ff7676; }

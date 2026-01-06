@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <!-- CryptoJS (SHA1/HMAC/Base64 helpers) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <!-- SRP client -->
+  <script defer src="../../srp/srp.js"></script>
+  <!-- Page logic -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <input id="username" placeholder="Username" autocomplete="off">
+    <input id="password" type="password" placeholder="Password">
+    <button id="btnLogin">Login</button>
+    <div class="status" id="status"></div>
+    <div class="link">
+      <a href="../register/index.html">Create account</a>
+    </div>
+  </div>
+</body>
+</html>

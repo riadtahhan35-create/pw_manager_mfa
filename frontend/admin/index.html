@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Admin Dashboard</title>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- تحسين بسيط للواجهة بدون تخريب main.css -->
+  <style>
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 260px; }
+    .content { flex: 1; padding: 24px; overflow: auto; }
+
+    .sidebar-menu li { cursor: pointer; user-select: none; }
+    .sidebar-menu li:hover { opacity: .9; }
+
+    .cards.stats { display: grid; grid-template-columns: repeat(3, minmax(180px, 1fr)); gap: 12px; }
+    .card.stat { text-align: center; }
+    .card.stat h3 { font-size: 34px; margin: 6px 0; }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px 0 18px;
+      flex-wrap: wrap;
+    }
+    .toolbar .left { display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .toolbar input {
+      min-width: 260px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      outline: none;
+    }
+
+    .admin-table { width: 100%; margin-top: 10px; }
+    .admin-table td, .admin-table th { vertical-align: middle; }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      background: rgba(255,255,255,.06);
+    }
+    .badge.ok { color: #2ecc71; }
+    .badge.err { color: #ff6b6b; }
+    .badge.warn { color: #f7b731; }
+
+    .status { margin-top: 14px; font-weight: 800; min-height: 22px; }
+    .status.ok { color:#2ecc71; }
+    .status.err { color:#ff6b6b; }
+  </style>
+
+  <script defer src="admin.js"></script>
+</head>
+
+<body>
+<div class="layout">
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>🛡 Admin Panel</h3>
+      <div style="opacity:.8;font-weight:700;margin-top:6px">
+        <span id="adminName">—</span>
+      </div>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li id="btnBack">
+        ⬅ Back to Dashboard
+      </li>
+      <li id="btnRefresh">
+        🔄 Refresh
+      </li>
+      <li class="danger" id="btnLogout">
+        🚪 Logout
+      </li>
+    </ul>
+  </aside>
+
+  <!-- ===== Content ===== -->
+  <main class="content">
+
+    <!-- ===== Stats ===== -->
+    <h2>📊 System Statistics</h2>
+
+    <div class="cards stats">
+      <div class="card stat">
+        <h3 id="statTotal">0</h3>
+        <p>Total Users</p>
+      </div>
+      <div class="card stat">
+        <h3 id="statActive">0</h3>
+        <p>Active Users</p>
+      </div>
+      <div class="card stat">
+        <h3 id="statLocked">0</h3>
+        <p>Locked Users</p>
+      </div>
+    </div>
+
+    <!-- ===== Users ===== -->
+    <div class="toolbar">
+      <h2 style="margin:0">👥 Users Management</h2>
+      <div class="left">
+        <input id="searchUsers" placeholder="Search by username/email..." />
+      </div>
+    </div>
+
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th style="width:70px">ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th style="width:150px">Role</th>
+          <th style="width:140px">Status</th>
+          <th style="width:160px">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="usersTable"></tbody>
+    </table>
+
+    <!-- ===== Audit Log ===== -->
+    <div class="toolbar" style="margin-top:28px">
+      <h2 style="margin:0">📜 Audit Log</h2>
+      <div class="left">
+        <input id="searchAudit" placeholder="Search action/admin/target..." />
+      </div>
+    </div>
+
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th style="width:190px">Time</th>
+          <th style="width:160px">Action</th>
+          <th style="width:140px">Admin</th>
+          <th style="width:140px">Target</th>
+          <th>Details</th>
+          <th style="width:140px">IP</th>
+        </tr>
+      </thead>
+      <tbody id="auditTable"></tbody>
+    </table>
+
+    <div id="status" class="status"></div>
+
+  </main>
+</div>
+</body>
+</html>

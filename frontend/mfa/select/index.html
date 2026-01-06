@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Select MFA</title>
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <script type="module" defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Select MFA Method</h2>
+    <p class="sub">Choose how you want to protect your account.</p>
+    <div class="card">
+      <button class="btn" id="btnFaceReg">Register Face</button>
+      <button class="btn secondary" id="btnFaceVerify">Verify Face (Login)</button>
+      <div class="small">Face templates are encrypted locally with DEK (never sent in plaintext).</div>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+</body>
+</html>

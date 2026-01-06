@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Crypto -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/argon2-browser/dist/argon2-bundled.min.js"></script>
+
+  <!-- Face helpers (DEK unwrap + AES-GCM helpers) -->
+  <script defer src="../mfa/face_verify/face.js"></script>
+
+  <!-- Vault crypto -->
+  <script defer src="../crypto/vault_crypto.js"></script>
+
+  <!-- Dashboard logic -->
+  <script defer src="sidebar.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>🔐 Password Manager</h3>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li id="btnAdd"><span>➕</span><span>Add Password</span></li>
+      <li id="btnChangePassword"><span>🔑</span><span>Change Password</span></li>
+      <li id="btnChangeFace"><span>🧠</span><span>Change Face</span></li>
+      <li class="danger" id="btnLogout"><span>🚪</span><span>Logout</span></li>
+
+      <!-- مخفي افتراضيًا (حتى لو ما عندك .hidden في CSS) -->
+      <li id="adminPanelBtn" class="hidden" style="display:none">
+        <span>🛡️</span><span>Admin Panel</span>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <header class="content-header">
+      <h2>Your Saved Passwords</h2>
+      <button id="btnAddTop" class="primary">➕ Add New</button>
+    </header>
+
+    <section id="vaultList" class="cards"></section>
+
+    <p id="empty" class="status muted">No passwords stored yet.</p>
+    <div id="status" class="status"></div>
+  </main>
+
+</div>
+</body>
+</html>

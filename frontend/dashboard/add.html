@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Password</title>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- deps for face.js -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/argon2-browser/dist/argon2-bundled.min.js"></script>
+
+  <!-- MUST exist -->
+  <script defer src="../mfa/face_verify/face.js"></script>
+  <script defer src="../crypto/vault_crypto.js"></script>
+
+  <script defer src="add.js"></script>
+</head>
+
+<body>
+  <div class="container wide">
+    <h2>➕ Add New Password</h2>
+
+    <input id="site" placeholder="Website (example.com)" />
+    <input id="siteUsername" placeholder="Username / Email for this site" />
+
+    <div class="row">
+      <input id="secret" type="password" placeholder="Password" style="flex:1" />
+      <button id="btnToggle" class="secondary" type="button" style="width:140px">👁️ Show</button>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h3 style="margin:0 0 10px 0">Generator</h3>
+
+      <div class="row">
+        <label style="display:flex;gap:8px;align-items:center;flex:1">
+          <input type="checkbox" id="optUpper" checked /> Uppercase
+        </label>
+        <label style="display:flex;gap:8px;align-items:center;flex:1">
+          <input type="checkbox" id="optLower" checked /> Lowercase
+        </label>
+      </div>
+
+      <div class="row">
+        <label style="display:flex;gap:8px;align-items:center;flex:1">
+          <input type="checkbox" id="optDigits" checked /> Digits
+        </label>
+        <label style="display:flex;gap:8px;align-items:center;flex:1">
+          <input type="checkbox" id="optSymbols" checked /> Symbols
+        </label>
+      </div>
+
+      <div class="row" style="align-items:center">
+        <span style="min-width:90px">Length</span>
+        <input id="len" type="range" min="15" max="25" value="18" style="flex:1" />
+        <strong id="lenVal" style="min-width:30px;text-align:right">18</strong>
+      </div>
+
+      <button id="btnGen" class="secondary" type="button">🎲 Generate</button>
+    </div>
+
+    <div class="row" style="margin-top:12px">
+      <button id="btnSave" class="primary" type="button">💾 Save</button>
+      <button id="btnBack" class="secondary" type="button">⬅ Back</button>
+    </div>
+
+    <div class="status" id="status"></div>
+  </div>
+</body>
+</html>

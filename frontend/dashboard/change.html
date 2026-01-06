@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Change Password</title>
+  <link rel="stylesheet" href="/frontend/assets/css/main.css">
+  <link rel="stylesheet" href="/frontend/dashboard/change.css">
+</head>
+<body>
+  <div class="page">
+    <div class="card cp-card">
+      <div class="cp-header">
+        <div class="cp-icon">🔐</div>
+        <div>
+          <h1>Change Account Password</h1>
+          <p class="muted">For security, you’ll be asked to login again after changing your password.</p>
+        </div>
+      </div>
+
+      <div class="cp-form">
+        <label>Current Password</label>
+        <div class="field">
+          <input id="currentPassword" type="password" placeholder="Enter current password" autocomplete="current-password">
+          <button class="eye" type="button" data-eye="currentPassword" title="Show/Hide">👁️</button>
+        </div>
+
+        <label>New Password</label>
+        <div class="field">
+          <input id="newPassword" type="password" placeholder="Enter new password" autocomplete="new-password">
+          <button class="eye" type="button" data-eye="newPassword" title="Show/Hide">👁️</button>
+        </div>
+
+        <div class="meter">
+          <div class="meter-bar" id="pwBar"></div>
+        </div>
+        <div class="meter-hint" id="pwHint">Use 10+ chars with numbers & symbols.</div>
+
+        <label>Confirm New Password</label>
+        <div class="field">
+          <input id="confirmPassword" type="password" placeholder="Re-enter new password" autocomplete="new-password">
+          <button class="eye" type="button" data-eye="confirmPassword" title="Show/Hide">👁️</button>
+        </div>
+
+        <div class="actions">
+          <button id="btnBack" class="btn secondary" type="button">← Back</button>
+          <button id="btnUpdate" class="btn primary" type="button">Update Password</button>
+        </div>
+
+        <div id="status" class="status"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/frontend/dashboard/change.js"></script>
+</body>
+</html>
